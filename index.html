@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #f0b429;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        #categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        #categories a {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        #categories a:hover {
+            background: #f0b429;
+        }
+
+        #content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            margin: auto;
+            border-radius: 6px;
+        }
+
+        .product h3 {
+            margin-top: 15px;
+        }
+
+        .product p {
+            color: #666;
+            min-height: 45px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e09b00;
+        }
+
+        #message {
+            text-align: center;
+            margin: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Online Store</h1>
+    <p>Simple online catalog</p>
+</header>
+
+<nav>
+    <a href="#" id="homeLink">Home</a>
+    <a href="#" id="catalogLink">Catalog</a>
+</nav>
+
+<main>
+    <div id="categories"></div>
+
+    <h2 id="title">Welcome to our store!</h2>
+
+    <div id="content"></div>
+    <div id="message"></div>
+</main>
+
+<script>
+    const categoriesContainer = document.getElementById("categories");
+    const contentContainer = document.getElementById("content");
+    const title = document.getElementById("title");
+    const message = document.getElementById("message");
+
+    let categories = [];
+
+    // Load categories from JSON
+    function loadCategories() {
+        fetch("categories.json")
+            .then(response => response.json())
+            .then(data => {
+                categories = data;
+                displayCategories();
+            })
+            .catch(error => {
+                message.textContent = "Error loading categories.";
+                console.error(error);
+            });
+    }
+
+    // Display category links
+    function displayCategories() {
+        categoriesContainer.innerHTML = "";
+
+        categories.forEach(category => {
+            const link = document.createElement("a");
+
+            link.textContent = category.name;
+            link.addEventListener("click", () => {
+                loadCategory(category);
+            });
+
+            categoriesContainer.appendChild(link);
+        });
+
+        // Specials link
+        const specialsLink = document.createElement("a");
+        specialsLink.textContent = "Specials";
+
+        specialsLink.addEventListener("click", () => {
+            const randomCategory =
+                categories[Math.floor(Math.random() * categories.length)];
+
+            loadCategory(randomCategory);
+        });
+
+        categoriesContainer.appendChild(specialsLink);
+    }
+
+    // Load products from category JSON
+    function loadCategory(category) {
+        fetch(category.shortname + ".json")
+            .then(response => response.json())
+            .then(data => {
+                displayProducts(data);
+                title.textContent = data.category;
+                message.textContent = "";
+            })
+            .catch(error => {
+                message.textContent = "Error loading products.";
+                console.error(error);
+            });
+    }
+
+    // Display products
+    function displayProducts(data) {
+        contentContainer.innerHTML = "";
+
+        data.items.forEach(item => {
+            const product = document.createElement("div");
+            product.className = "product";
+
+            product.innerHTML = `
+                <img src="https://placehold.co/200x200?text=${item.shortname}"
+                     alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <div class="price">$${item.price.toFixed(2)}</div>
+            `;
+
+            contentContainer.appendChild(product);
+        });
+    }
+
+    // Home button
+    document.getElementById("homeLink").addEventListener("click", () => {
+        contentContainer.innerHTML = "";
+        categoriesContainer.innerHTML = "";
+        title.textContent = "Welcome to our store!";
+        message.textContent = "";
+
+        loadCategories();
+    });
+
+    // Catalog button
+    document.getElementById("catalogLink").addEventListener("click", () => {
+        loadCategories();
+        contentContainer.innerHTML = "";
+        title.textContent = "Catalog";
+        message.textContent = "";
+    });
+
+    // Initial loading
+    loadCategories();
+</script>
+
+</body>
+</html>

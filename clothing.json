@@ -1,0 +1,40 @@
+{
+    "category": "Clothing",
+    "items": [
+        {
+            "id": 1,
+            "name": "Classic T-Shirt",
+            "shortname": "tshirt",
+            "description": "Comfortable cotton T-shirt for everyday wear.",
+            "price": 19.99
+        },
+        {
+            "id": 2,
+            "name": "Hoodie",
+            "shortname": "hoodie",
+            "description": "Warm hoodie with a soft inner lining.",
+            "price": 44.99
+        },
+        {
+            "id": 3,
+            "name": "Denim Jeans",
+            "shortname": "jeans",
+            "description": "Classic denim jeans with a comfortable fit.",
+            "price": 54.99
+        },
+        {
+            "id": 4,
+            "name": "Sports Jacket",
+            "shortname": "jacket",
+            "description": "Lightweight jacket suitable for outdoor activities.",
+            "price": 69.99
+        },
+        {
+            "id": 5,
+            "name": "Sneakers",
+            "shortname": "sneakers",
+            "description": "Casual sneakers for everyday use.",
+            "price": 79.99
+        }
+    ]
+}

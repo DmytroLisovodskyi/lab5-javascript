@@ -1,0 +1,40 @@
+{
+    "category": "Books",
+    "items": [
+        {
+            "id": 1,
+            "name": "The Hobbit",
+            "shortname": "hobbit",
+            "description": "A fantasy adventure about a hobbit and his unexpected journey.",
+            "price": 14.99
+        },
+        {
+            "id": 2,
+            "name": "1984",
+            "shortname": "1984",
+            "description": "A dystopian novel about surveillance and totalitarian society.",
+            "price": 12.50
+        },
+        {
+            "id": 3,
+            "name": "Harry Potter",
+            "shortname": "harrypotter",
+            "description": "A fantasy story about a young wizard and his adventures.",
+            "price": 18.99
+        },
+        {
+            "id": 4,
+            "name": "The Lord of the Rings",
+            "shortname": "lotr",
+            "description": "An epic fantasy story about a journey to destroy a powerful ring.",
+            "price": 24.99
+        },
+        {
+            "id": 5,
+            "name": "Sherlock Holmes",
+            "shortname": "sherlock",
+            "description": "A collection of detective stories featuring Sherlock Holmes.",
+            "price": 16.99
+        }
+    ]
+}

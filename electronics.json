@@ -1,0 +1,40 @@
+{
+    "category": "Electronics",
+    "items": [
+        {
+            "id": 1,
+            "name": "Wireless Headphones",
+            "shortname": "headphones",
+            "description": "Wireless headphones with clear sound and comfortable design.",
+            "price": 59.99
+        },
+        {
+            "id": 2,
+            "name": "Smart Watch",
+            "shortname": "smartwatch",
+            "description": "Smart watch with fitness tracking and notifications.",
+            "price": 89.99
+        },
+        {
+            "id": 3,
+            "name": "Mechanical Keyboard",
+            "shortname": "keyboard",
+            "description": "Mechanical keyboard with RGB backlight.",
+            "price": 74.50
+        },
+        {
+            "id": 4,
+            "name": "Wireless Mouse",
+            "shortname": "mouse",
+            "description": "Ergonomic wireless mouse for everyday use.",
+            "price": 24.99
+        },
+        {
+            "id": 5,
+            "name": "Portable Speaker",
+            "shortname": "speaker",
+            "description": "Compact Bluetooth speaker with powerful sound.",
+            "price": 39.99
+        }
+    ]
+}

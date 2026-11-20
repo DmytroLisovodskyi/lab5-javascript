@@ -1,0 +1,40 @@
+{
+    "category": "Accessories",
+    "items": [
+        {
+            "id": 1,
+            "name": "Backpack",
+            "shortname": "backpack",
+            "description": "Practical backpack with multiple compartments.",
+            "price": 34.99
+        },
+        {
+            "id": 2,
+            "name": "Sunglasses",
+            "shortname": "sunglasses",
+            "description": "Stylish sunglasses with UV protection.",
+            "price": 22.99
+        },
+        {
+            "id": 3,
+            "name": "Leather Wallet",
+            "shortname": "wallet",
+            "description": "Compact wallet made of durable material.",
+            "price": 19.99
+        },
+        {
+            "id": 4,
+            "name": "Wrist Watch",
+            "shortname": "watch",
+            "description": "Classic wrist watch with a minimalist design.",
+            "price": 49.99
+        },
+        {
+            "id": 5,
+            "name": "Cap",
+            "shortname": "cap",
+            "description": "Casual cap suitable for everyday wear.",
+            "price": 14.99
+        }
+    ]
+}
